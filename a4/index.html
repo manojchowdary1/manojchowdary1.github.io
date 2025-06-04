@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>a4</title>
     <script>
-        function greet(){
-            alert(entername.value)
-        }
-        function near(){
-            alert(enter.value)
+        
+    
+        function calc(){
+            let a=Number(t1.value)
+            let b=Number(t2.value)
+            
+            alert(a+b)
         }
     </script>
 </head>
 <body>
-    <input type="text" id="entername"/>
-    <button onclick="greet()" style="background-color: green;">CONFIRM</button>
-    <input type="text" id="enter"/>
-    <button onclick="near()" style="background-color:aqua;"> CLICK</button>
+    <input type="text" id="t1"/>
+    <input type="text" id="t2"/>
+    <button onclick="calc()" style="background-color:aqua;"> CLICK</button>
 </body>
 </html>

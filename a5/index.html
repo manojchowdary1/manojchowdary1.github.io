@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a6</title>
+    <script>
+        function enter(){
+            let a=document.getElementById("box1").value;
+             let b=document.getElementById("box2").value;
+              let c=document.getElementById("box3").value;
+             let d=  `here is the information of the person <h2>${a}</h2>  and mail id  ,<h2>${b} </h2> here is the passord of the person ,<h2> ${c} </h2>`;
+             divresults.innerHTML=d;
+             } ; 
+    </script>
+</head>
+<body>
+    <input type="text" id="box1" placeholder="enter name"/>
+   <input type="email" id="box2"  placeholder="enter email"/>
+    <input type="password" id="box3" placeholder="enter password"/>
+    <button onclick="enter()"style="color: green;">SUBMIT</button>
+    <hr/>
+    <div id="divresults"></div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>temp 2</title>
+   <script>
+      function add(a,b){
+            return a+b;
+                    }
+          function sub(a,b){
+            return a-b;
+                    }
+          function mul(a,b){
+            return a*b;
+                    }
+          function div(){
+            let a=Number(t1.value)
+            let b=Number(t2.value)
+            
+            result.InnerHTML=a/b;
+        }
+        const main=(fn)=>{
+       fn();
+       };
+       main(add,sub,mul,div);
+
+
+   </script>
+
+
+  </head>
+  <body>
+    
+      // const add = (a,b) => {
+      //     console.log(a+b);
+      // };
+      // add(2,3);
+
+      //  const add = (a,b) => {
+      //     return a+b;
+      // };
+      // let result=add(5,6);
+      // console.log(result);
+
+      //  const add = (...args) => {
+      //     console.log(args);
+      // };
+      // add(2,3,4,5);
+
+
+      // function add() {
+      //     console.log(arguments);
+      // }
+      // add(2,3,4,5);
+
+
+      // const f1 = () =>{
+      //     console.log("f1 function")
+      // }
+      // const main=(fn)=>{
+      //     fn();
+      // };
+      // main(f1);
+
+
+    <input type="text" id="t1"/>
+    <input type="text" id="t2"/>
+    <button onclick="calc()" style="background-color:aqua;"> CLICK</button>
+    <hr>
+    <div id="result"></div>
+  </body>
+</html>

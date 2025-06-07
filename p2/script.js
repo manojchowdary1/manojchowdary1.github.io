@@ -1,34 +1,98 @@
-const login=()=>{
-    let str=`
-    <div class="container">
-    <h1>login here</h1>
-    <p><input type="text" id="box1" placeholder="name"></p>
-    <p><input type="text" id="box2" placeholder="email"></p>
-    <p><input type="text" id="box2" placeholder="password"></p>
-    <p> <button onclick="welc()"> login </button></p>
-    <button onclick="register()"> create account </button>
-   </div>   
-  `
-      root.innerHTML = str
-
-}
-const register=()=>{
-    let str=`
-    <div class="container">
-    <h1>register here</h1>
-    <p><input type="text" id="box4" placeholder="age"></p>
-    <p><input type="text" id="box5" placeholder="email"></p>
-    <p><input type="text" id="box6" placeholder="password"></p>
-   <p> <button> register</button></p>
-    <p><button onclick="login()">already account</button></p>
+const users = [];
+let user={}
+const showLogin = () => {
+  let str = `
+    <div>
+    <h1>Login Form</h1>
+    <p><div id="dvMsg"></div></p>
+    <p><input type="text" id="txtEmail"></p>
+    <p><input type="password" id="txtPass"></p>
+    <p><button onclick='validateUser()'>Log In</button></p>
+    <p><button onclick='showRegister()'>Create Account</button></p>
     </div>
-  `
-      root.innerHTML = str
+    `;
+  root.innerHTML = str;
+};
 
-}
-const welc=()=>{
-  let str=` <div class="manu">
-  <h1> WELCOME TO HOME PAGE</h1>
-  </div>`
-  root.innerHTML=str
-}
+const showRegister = () => {
+  let str = `
+    <h1>Register Form</h1>
+    <p><input type="text" id="txtName"></p>
+     <p><input type="text" id="txtEmail"></p>
+    <p><input type="password" id="txtPass"></p>
+    <button onclick='addUser()'>Register</button>
+    <hr>
+    <button onClick='showLogin()'>Alread a Member? Login here...</button>
+    `;
+  root.innerHTML = str;
+};
+
+const add = () => {
+  const type = document.querySelector("select").value;
+  const amount = Number(document.getElementById("txtAmount").value);
+
+  if (type == 1) {
+    
+    user.balance += amount;
+  } else if (type == 2) {
+    
+    if (amount <= user.balance) {
+      user.balance -= amount;
+    } else {
+      alert("Insufficient balance!");
+      return;
+    }
+  } else {
+    alert("Please select a valid transaction type");
+    return;
+  }
+  showHome();
+};
+
+
+const showHome = () => {
+  let str = `
+    <h1>Welcome ${user.name}</h1>
+    <hr>
+    <p><select>
+     <option value=0>--select--</option>
+      <option value=1>Deposit</option>
+      <option value=2>Withdraw</option>
+      </select></p>
+      <p>
+      <input type='number' id='txtAmount'>
+      </p>
+      <p><button onclick='add()'>Submit</button>
+
+    <button onclick='showLogin()'>Logout</button>
+    <hr>
+    
+    <p>Current balance:${user.balance}
+    `;
+  root.innerHTML = str;
+};
+
+const addUser = () => {
+  const obj = {
+    name: document.getElementById("txtName").value,
+    email: document.getElementById("txtEmail").value,
+    pass: document.getElementById("txtPass").value,
+    balance:0
+  };
+  users.push(obj);
+  console.log(users);
+  showLogin();
+};
+
+const validateUser = () => {
+  let email = document.getElementById("txtEmail").value;
+  let pass = document.getElementById("txtPass").value;
+   user = users.find(
+    (e) => e.email === email && e.pass === pass
+  )
+  if (user) {
+    showHome();
+  } else {
+    dvMsg.innerHTML = "Access Denied";
+  }
+};

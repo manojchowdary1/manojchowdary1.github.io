@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API'S AND STUFF</title>
+  </head>
+  <body>
+    <input type="text" id="txtname" />
+    <button onclick="search()">submit</button>
+    <div id="out">
+      <script>
+        const search = () => {
+          const url = "https://jsonplaceholder.typicode.com/users";
+          fetch(url)
+            .then((res) => res.json())
+            .then((users) => {
+              let name = document.getElementById("txtname").value;
+              const u = users.find((element) => element.name === name);
+              if (u) {
+                str = `${u.email}`;
+              }
+              else 
+              {
+                str="OT PRESENT IN THE LIST"
+              }
+              out.innerHTML = str;
+            });
+        };
+      </script>
+    </div>
+  </body>
+</html>

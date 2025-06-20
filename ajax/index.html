@@ -13,7 +13,7 @@
         const search = () => {
           const url = "https://jsonplaceholder.typicode.com/users";
           fetch(url)
-            .then((res) => res.json())
+            .then((res) => res.text())
             .then((users) => {
               let name = document.getElementById("txtname").value;
               const u = users.find((element) => element.name === name);

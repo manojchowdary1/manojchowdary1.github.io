@@ -17,7 +17,7 @@
         let listHTML = result
           .map(
             (fruit) =>
-              `<li>${fruit}<button onclick="del('${fruit}')">Delete</button></li>`
+              `<li>${fruit}<button  onclick="del('${fruit}')">Delete Fruit</button></li>`
           )
           .join("");
         document.getElementById("fruitList").innerHTML = listHTML;
@@ -42,11 +42,29 @@
   </head>
   <body>
     <div>
-      <h1>Fruit List</h1>
-      <input type="text" id="txt1" />
-      <button onclick="add()">Add</button>
-      <button onclick="search(document.getElementById('txt1').value)">Search</button>
-      <ul id="fruitList"></ul>
+      <h1 style="color: green">Fruit List</h1>
+      <h3 style="color: cornflowerblue">
+        Daily One Fruit Is Enough For Good Health.
+      </h3>
+      <input
+        type="text"
+        id="txt1"
+        placeholder="Enter Fruit Name"
+        style="background-color: aquamarine"
+      />
+      <button
+        onclick="add()"
+        style="color: black; background-color: chartreuse"
+      >
+        Add Fruits
+      </button>
+      <button
+        style="background-color: red"
+        onclick="search(document.getElementById('txt1').value)"
+      >
+        Search Fruits
+      </button>
+      <ul style="color: green" id="fruitList"></ul>
     </div>
   </body>
 </html>
